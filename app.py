@@ -1,4 +1,4 @@
-from flask import Flask,request,url_for,render_template
+from flask import Flask,request,url_for,render_template,redirect
 import sqlite3
 
 
@@ -37,6 +37,29 @@ def index():
 
     return render_template("index.html",pacientes=pacientes)
 
+@app.route('/nuevoregistro')
+def nuevoregistro():
+    return render_template("registro.html")
+
+
+@app.route("/registro",methods=["POST"])
+def registro():
+    mascota = request.form["mascota"]
+    propietario = request.form["propietario"]
+    especie = request.form["especie"]
+    fecha = request.form["fecha"]
+    conn = sqlite3.connect("citas.db")
+    cursor = conn.cursor()
+    cursor.execute(
+        """
+        INSERT INTO pacientes(mascota,propietario,especie,fecha)
+        VALUES(?,?,?,?)
+        """,(mascota,propietario,especie,fecha)  
+    )
+    conn.commit()
+    conn.close()
+    return redirect("/")
+    
 
 if __name__ =="__main__":
     app.run(debug=True)

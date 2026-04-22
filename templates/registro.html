@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form action="/registro" class="form-control" method="POST">
+    <div class="dato">
+        <label for="">Mascota</label>
+        <input type="text" name="mascota" placeholder="Ingrese el nombre de su mascota" class="form-control">
+    </div>
+    <div class="dato">
+        <label for="">Propietario</label>
+        <input type="text" name="propietario" placeholder="Ingrese el nombre del propietario" class="form-control">
+    </div>
+    <div class="dato">
+        <label for="">Especie</label>
+        <input type="text" name="especie" placeholder="Ingrese la especie de la mascota" class="form-control">
+    </div>
+    
+    <div class="dato">
+        <label for="">fecha</label>
+        <input type="date" name="fecha" placeholder="Ingrese la fecha" class="form-control">
+    </div>
+    <br>
+    <div class="dato">
+        <input type="submit" name="guardar" value="Guardar" class="btn btn-success">
+    </div>
+</form>
+
+{% endblock %}
