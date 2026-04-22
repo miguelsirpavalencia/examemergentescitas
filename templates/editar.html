@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form action="/actualizar" class="form-control" method="POST">
+    <input type="hidden" name="id" value="{{paciente.id}}">
+    <div class="dato">
+        <label for="">Mascota</label>
+        <input type="text" name="mascota" value="{{paciente.mascota}}" class="form-control">
+    </div>
+    <div class="dato">
+        <label for="">Propietario</label>
+        <input type="text" name="propietario" value="{{paciente.propietario}}" class="form-control">
+    </div>
+    <div class="dato">
+        <label for="">Especie</label>
+        <input type="text" name="especie" value="{{paciente.especie}}" class="form-control">
+    </div>
+    
+    <div class="dato">
+        <label for="">fecha</label>
+        <input type="date" name="fecha" value="{{paciente.fecha}}" class="form-control">
+    </div>
+    <br>
+    <div class="dato">
+        <input type="submit" name="guardar" value="Guardar" class="btn btn-success">
+    </div>
+</form>
+
+{% endblock %}
