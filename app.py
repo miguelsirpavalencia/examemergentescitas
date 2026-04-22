@@ -59,6 +59,20 @@ def registro():
     conn.commit()
     conn.close()
     return redirect("/")
+
+
+@app.route("/eliminar/<int:id>")
+def eliminar(id):
+    conn = sqlite3.connect("citas.db")
+    cursor = conn.cursor()
+    cursor.execute(
+        """
+        DELETE FROM pacientes WHERE id=?
+        """,(id,)  
+    )
+    conn.commit()
+    conn.close()
+    return redirect("/")
     
 
 if __name__ =="__main__":

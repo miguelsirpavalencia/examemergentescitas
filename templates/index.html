@@ -26,6 +26,10 @@
             <td>{{paciente.propietario}}</td>
             <td>{{paciente.especie}}</td>
             <td>{{paciente.fecha}}</td>
+            <td>
+                <a href="/editar/{{paciente.id}}" class="btn btn-warning mb-1">Editar</a>
+                <a href="/eliminar/{{paciente.id}}" class="btn btn-danger mb-1">Eliminar</a>
+            </td>
         </tr>
     </tbody>
     {%endfor%}
